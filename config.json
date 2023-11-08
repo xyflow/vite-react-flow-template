@@ -1,0 +1,12 @@
+{
+  "id": "pro-example-id",
+  "name": "Pro Example Name",
+  "description": "...",
+  "tags": ["workflow"],
+  "files": ["App.tsx"],
+  "dependencies": {},
+  "published": false,
+  "icon": "diagram-tree",
+  "variants": [],
+  "publicPath": "example-category/pro-example-id/"
+}

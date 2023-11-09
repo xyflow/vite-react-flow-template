@@ -7,3 +7,21 @@ This template creates a very basic [React Flow](https://reactflow.dev) app with 
 ```sh
 npx degit xyflow/vite-react-flow-template app-name
 ```
+
+## Installation
+
+```sh
+npm run install
+```
+
+## Development
+
+```sh
+npm run dev
+```
+
+## Build
+
+```sh
+npm run build
+```

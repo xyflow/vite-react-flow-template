@@ -1,51 +1,43 @@
-import ReactFlow, {
-  Controls,
+import type { OnConnect } from "reactflow";
+
+import { useCallback } from "react";
+import {
   Background,
+  Controls,
   MiniMap,
+  ReactFlow,
+  addEdge,
   useNodesState,
   useEdgesState,
-} from 'reactflow';
+} from "reactflow";
 
-import 'reactflow/dist/style.css';
+import "reactflow/dist/style.css";
 
-const initNodes = [
-  {
-    id: 'a',
-    data: { label: 'Node A' },
-    position: { x: 250, y: 0 },
-  },
-  {
-    id: 'b',
-    data: { label: 'Node B' },
-    position: { x: 100, y: 100 },
-  },
-];
+import { initialNodes, nodeTypes } from "./nodes";
+import { initialEdges, edgeTypes } from "./edges";
 
-const initEdges = [
-  {
-    id: 'a-b',
-    source: 'a',
-    target: 'b',
-  },
-];
-
-function App() {
-  const [nodes, , onNodesChange] = useNodesState(initNodes);
-  const [edges, , onEdgesChange] = useEdgesState(initEdges);
+export default function App() {
+  const [nodes, , onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect: OnConnect = useCallback(
+    (connection) => setEdges((edges) => addEdge(connection, edges)),
+    [setEdges]
+  );
 
   return (
     <ReactFlow
       nodes={nodes}
+      nodeTypes={nodeTypes}
       onNodesChange={onNodesChange}
       edges={edges}
+      edgeTypes={edgeTypes}
       onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
       fitView
     >
       <Background />
-      <Controls />
       <MiniMap />
+      <Controls />
     </ReactFlow>
   );
 }
-
-export default App;

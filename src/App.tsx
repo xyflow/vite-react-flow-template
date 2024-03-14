@@ -1,5 +1,3 @@
-import type { OnConnect } from "reactflow";
-
 import { useCallback } from "react";
 import {
   Background,
@@ -9,23 +7,25 @@ import {
   addEdge,
   useNodesState,
   useEdgesState,
-} from "reactflow";
+  type OnConnect,
+} from "@xyflow/react";
 
-import "reactflow/dist/style.css";
+import "@xyflow/react/dist/style.css";
 
-import { initialNodes, nodeTypes } from "./nodes";
-import { initialEdges, edgeTypes } from "./edges";
+import { initialNodes, nodeTypes, type CustomNodeType } from "./nodes";
+import { initialEdges, edgeTypes, type CustomEdgeType } from "./edges";
 
 export default function App() {
-  const [nodes, , onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, , onNodesChange] = useNodesState<CustomNodeType>(initialNodes);
+  const [edges, setEdges, onEdgesChange] =
+    useEdgesState<CustomEdgeType>(initialEdges);
   const onConnect: OnConnect = useCallback(
     (connection) => setEdges((edges) => addEdge(connection, edges)),
     [setEdges]
   );
 
   return (
-    <ReactFlow
+    <ReactFlow<CustomNodeType, CustomEdgeType>
       nodes={nodes}
       nodeTypes={nodeTypes}
       onNodesChange={onNodesChange}

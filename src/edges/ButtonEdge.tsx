@@ -1,10 +1,10 @@
 import {
   BaseEdge,
-  Edge,
   EdgeLabelRenderer,
-  EdgeProps,
   getBezierPath,
   useReactFlow,
+  type EdgeProps,
+  type Edge,
 } from "@xyflow/react";
 
 const buttonStyle = {

@@ -7,7 +7,7 @@ export type PositionLoggerNodeData = {
 
 export type PositionLoggerNode = Node<PositionLoggerNodeData>;
 
-export function PositionLoggerNode({
+export default function PositionLoggerNode({
   positionAbsoluteX,
   positionAbsoluteY,
   data,

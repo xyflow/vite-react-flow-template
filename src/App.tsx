@@ -19,8 +19,8 @@ import { initialEdges, edgeTypes } from "./edges";
 export default function App() {
   const [nodes, _, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = useCallback((params: any) => setEdges((els) => addEdge(params, els)), []);
-
+  const onConnect = useCallback<OnConnect>((params: any) => setEdges((els) => addEdge(params, els)), []);
+  
 
   return (
     <ReactFlow

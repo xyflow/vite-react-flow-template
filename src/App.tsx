@@ -17,12 +17,10 @@ import { initialNodes, nodeTypes } from "./nodes";
 import { initialEdges, edgeTypes } from "./edges";
 
 export default function App() {
-  const [nodes, , onNodesChange] = useNodesState(initialNodes);
+  const [nodes, _, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect: OnConnect = useCallback(
-    (connection) => setEdges((edges) => addEdge(connection, edges)),
-    [setEdges]
-  );
+  const onConnect = useCallback((params: any) => setEdges((els) => addEdge(params, els)), []);
+
 
   return (
     <ReactFlow
@@ -35,7 +33,7 @@ export default function App() {
       onConnect={onConnect}
       fitView
     >
-      <Background />
+      <Background color="black"/>
       <MiniMap />
       <Controls />
     </ReactFlow>

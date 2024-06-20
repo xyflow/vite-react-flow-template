@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reactflow": "^11.10.3"
+    "reactflow": "^11.11.4"
   },
   "license": "MIT",
   "devDependencies": {

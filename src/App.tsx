@@ -1,20 +1,19 @@
-import type { OnConnect } from "reactflow";
-
-import { useCallback } from "react";
+import { useCallback } from 'react';
 import {
+  ReactFlow,
   Background,
   Controls,
   MiniMap,
-  ReactFlow,
   addEdge,
   useNodesState,
   useEdgesState,
-} from "reactflow";
+  type OnConnect,
+} from '@xyflow/react';
 
-import "reactflow/dist/style.css";
+import '@xyflow/react/dist/style.css';
 
-import { initialNodes, nodeTypes } from "./nodes";
-import { initialEdges, edgeTypes } from "./edges";
+import { initialNodes, nodeTypes } from './nodes';
+import { initialEdges, edgeTypes } from './edges';
 
 export default function App() {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);

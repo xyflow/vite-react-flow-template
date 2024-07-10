@@ -1,17 +1,14 @@
-import type { NodeProps } from "reactflow";
-import { Handle, Position } from "reactflow";
+import { Handle, Position, type NodeProps } from '@xyflow/react';
 
-export type PositionLoggerNodeData = {
-  label?: string;
-};
+import { type PositionLoggerNode } from './types';
 
 export function PositionLoggerNode({
-  xPos,
-  yPos,
+  positionAbsoluteX,
+  positionAbsoluteY,
   data,
-}: NodeProps<PositionLoggerNodeData>) {
-  const x = `${Math.round(xPos)}px`;
-  const y = `${Math.round(yPos)}px`;
+}: NodeProps<PositionLoggerNode>) {
+  const x = `${Math.round(positionAbsoluteX)}px`;
+  const y = `${Math.round(positionAbsoluteY)}px`;
 
   return (
     // We add this class to use the same styles as React Flow's default nodes.

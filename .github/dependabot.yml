@@ -8,5 +8,5 @@ updates:
     schedule:
       interval: "daily"
     allow:
-      dependency-name: '@xyflow/react'
-      dependency-name: 'reactflow'
+      - dependency-name: '@xyflow/react'
+      - dependency-name: 'reactflow'

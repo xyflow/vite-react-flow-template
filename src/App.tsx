@@ -14,6 +14,7 @@ import '@xyflow/react/dist/style.css';
 
 import { initialNodes, nodeTypes } from './nodes';
 import { initialEdges, edgeTypes } from './edges';
+import './App.css';
 
 export default function App() {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);

@@ -10,10 +10,10 @@ import {
   type OnConnect,
 } from '@xyflow/react';
 
-import '@xyflow/react/dist/style.css';
+import '@xyflow/react/xy-theme.css';
 
 import { initialNodes, nodeTypes } from './nodes';
-import { initialEdges, edgeTypes } from './edges';
+import { initialEdges } from './edges';
 
 export default function App() {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
@@ -29,7 +29,6 @@ export default function App() {
       nodeTypes={nodeTypes}
       onNodesChange={onNodesChange}
       edges={edges}
-      edgeTypes={edgeTypes}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       fitView
